@@ -12,3 +12,8 @@ spring:
         instanceId: ${spring.application.name}
 server:
   port: 8080
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
