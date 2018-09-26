@@ -25,7 +25,7 @@ public class ConsulClientController {
   @Autowired
   private MyProperties properties;
 
-  @GetMapping("/getConfigFromValue1")
+  @GetMapping("/getConfigFromValue")
   public String getConfigFromValue() {
     return value;
   }
