@@ -33,9 +33,6 @@
    </dependency>
   </dependencies>
  </dependencyManagement>
- <modules>
-  <module>spring-cloud-consul-introduction</module>
- </modules>
  <repositories>
   <repository>
    <id>spring-milestones</id>
