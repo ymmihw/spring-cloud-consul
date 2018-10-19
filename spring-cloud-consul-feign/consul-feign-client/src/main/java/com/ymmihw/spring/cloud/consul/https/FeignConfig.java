@@ -16,6 +16,7 @@ import org.springframework.cloud.openfeign.ribbon.LoadBalancerFeignClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import feign.Client;
+import feign.auth.BasicAuthRequestInterceptor;
 
 @Configuration
 public class FeignConfig {
@@ -40,12 +41,18 @@ public class FeignConfig {
       }
     };
     ctx.init(null, new TrustManager[] {tm}, null);
-    return new LoadBalancerFeignClient(
+    LoadBalancerFeignClient a = new LoadBalancerFeignClient(
         new Client.Default(ctx.getSocketFactory(), new HostnameVerifier() {
           @Override
           public boolean verify(String hostname, SSLSession sslSession) {
             return true;
           }
         }), cachingFactory, clientFactory);
+    return a;
+  }
+
+  @Bean
+  public BasicAuthRequestInterceptor basicAuthRequestInterceptor() {
+    return new BasicAuthRequestInterceptor("admin", "admin");
   }
 }
