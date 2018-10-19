@@ -1,4 +1,4 @@
-package com.ymmihw.spring.cloud.consul;
+package com.ymmihw.spring.cloud.consul.https;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -6,13 +6,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-public class MyController {
+public class HttpsController {
   @Autowired
-  private FeignHttpClient httpClient;
+  private FeignHttpsClient client;
 
   @ResponseBody
-  @RequestMapping("/http2")
+  @RequestMapping("/https2")
   public String getGreeting() {
-    return httpClient.greeting();
+    return client.greeting();
   }
 }

@@ -1,4 +1,4 @@
-package com.ymmihw.spring.cloud.consul;
+package com.ymmihw.spring.cloud.consul.http;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 

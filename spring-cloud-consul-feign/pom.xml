@@ -25,5 +25,6 @@
  <modules>
   <module>consul-feign-http-service</module>
   <module>consul-feign-client</module>
+  <module>consul-feign-https-service</module>
  </modules>
 </project>
