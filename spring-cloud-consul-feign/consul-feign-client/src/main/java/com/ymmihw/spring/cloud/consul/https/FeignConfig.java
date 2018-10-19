@@ -41,14 +41,13 @@ public class FeignConfig {
       }
     };
     ctx.init(null, new TrustManager[] {tm}, null);
-    LoadBalancerFeignClient a = new LoadBalancerFeignClient(
+    return new LoadBalancerFeignClient(
         new Client.Default(ctx.getSocketFactory(), new HostnameVerifier() {
           @Override
           public boolean verify(String hostname, SSLSession sslSession) {
             return true;
           }
         }), cachingFactory, clientFactory);
-    return a;
   }
 
   @Bean
