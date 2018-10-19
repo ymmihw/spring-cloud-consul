@@ -42,12 +42,9 @@ public class FeignConfig {
     };
     ctx.init(null, new TrustManager[] {tm}, null);
     return new LoadBalancerFeignClient(
-        new Client.Default(ctx.getSocketFactory(), new HostnameVerifier() {
-          @Override
-          public boolean verify(String hostname, SSLSession sslSession) {
-            return hostname.equalsIgnoreCase(sslSession.getPeerHost());
-          }
-        }), cachingFactory, clientFactory);
+        new Client.Default(ctx.getSocketFactory(),
+            (hostname, sslSession) -> hostname.equalsIgnoreCase(sslSession.getPeerHost())),
+        cachingFactory, clientFactory);
   }
 
   @Bean
