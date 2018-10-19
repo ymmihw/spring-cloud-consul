@@ -25,7 +25,7 @@ public class FeignConfig {
   @ConditionalOnMissingBean
   public Client feignClient(CachingSpringLoadBalancerFactory cachingFactory,
       SpringClientFactory clientFactory) throws NoSuchAlgorithmException, KeyManagementException {
-    SSLContext ctx = SSLContext.getInstance("SSL");
+    SSLContext ctx = SSLContext.getInstance("TLSv1.2");
     X509TrustManager tm = new X509TrustManager() {
       @Override
       public void checkClientTrusted(X509Certificate[] chain, String authType)
@@ -37,7 +37,7 @@ public class FeignConfig {
 
       @Override
       public X509Certificate[] getAcceptedIssuers() {
-        return null;
+        return new X509Certificate[0];
       }
     };
     ctx.init(null, new TrustManager[] {tm}, null);
@@ -45,7 +45,7 @@ public class FeignConfig {
         new Client.Default(ctx.getSocketFactory(), new HostnameVerifier() {
           @Override
           public boolean verify(String hostname, SSLSession sslSession) {
-            return true;
+            return hostname.equalsIgnoreCase(sslSession.getPeerHost());
           }
         }), cachingFactory, clientFactory);
   }
