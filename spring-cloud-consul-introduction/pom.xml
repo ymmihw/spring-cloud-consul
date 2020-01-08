@@ -9,7 +9,6 @@
  </parent>
  <groupId>com.ymmihw.spring.cloud.consul</groupId>
  <artifactId>spring-cloud-consul-introduction</artifactId>
- <version>0.0.1-SNAPSHOT</version>
  <name>spring-cloud-consul-introduction</name>
  <url>http://maven.apache.org</url>
  <properties>
