@@ -1,7 +1,7 @@
 spring:
   cloud:
     consul:
-      host: 192.168.80.135
+      host: 172.16.10.177
       port: 8500
       discovery:
         healthCheckPath: /actuator/health
@@ -10,3 +10,5 @@ spring:
         instanceId: ${spring.application.name}${server.port}
         scheme: https
         healthCheckTlsSkipVerify: true
+        ipAddress: 172.16.10.83
+        preferIpAddress: true
