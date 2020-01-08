@@ -9,7 +9,6 @@
  </parent>
  <groupId>com.ymmihw.spring.cloud.consul</groupId>
  <artifactId>spring-cloud-consul-feign</artifactId>
- <version>0.0.1-SNAPSHOT</version>
  <packaging>pom</packaging>
  <name>spring-cloud-consul-feign</name>
  <url>http://maven.apache.org</url>

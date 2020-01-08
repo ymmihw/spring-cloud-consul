@@ -7,9 +7,7 @@
   <artifactId>spring-cloud-consul-feign</artifactId>
   <version>0.0.1-SNAPSHOT</version>
  </parent>
- <groupId>com.ymmihw.spring.cloud.consul</groupId>
  <artifactId>consul-feign-client</artifactId>
- <version>0.0.1-SNAPSHOT</version>
  <name>consul-feign-client</name>
  <url>http://maven.apache.org</url>
  <properties>
